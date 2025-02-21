@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Lato } from "next/font/google";
 import "./globals.css";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/layout/app-sidebar";
+import { AppHeader } from "@/components/layout/app-header";
+import { EventPersponsive } from "@/components/event-responsive";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const lato = Lato({
+  variable: "--font-lato",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -24,10 +24,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${lato.variable} antialiased`}>
+        <SidebarProvider>
+          <AppSidebar />
+          <main className="pt-9 relative overflow-hidden px-5 w-full">
+            <AppHeader />
+            {children}
+          </main>
+          <EventPersponsive/>
+        </SidebarProvider>
       </body>
     </html>
   );
