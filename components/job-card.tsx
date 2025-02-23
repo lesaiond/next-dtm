@@ -25,7 +25,7 @@ export const JobCard = ({ job }: { job: Job }) => {
             alt="Company Logo"
           />
         </div>
-        <Button variant="ghost" className="border-2 active:bg-muted">
+        <Button variant="ghost" className="border-2 h-9 active:bg-muted">
           Save
           <Bookmark className="active:text-foreground" />
         </Button>

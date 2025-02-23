@@ -49,6 +49,7 @@ export default function Home() {
         {coursesCardData.map((course) => (
           <CoursesCard
             key={course.id}
+            id={course.id}
             icon={course.icon}
             title={course.title}
             lessons={course.lessons}

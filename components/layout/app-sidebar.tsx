@@ -1,3 +1,5 @@
+"use client"
+
 import {
   MessageCircle,
   Home,
@@ -17,6 +19,7 @@ import {
 } from "@/components/ui/sidebar";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 // Menu items.
 const items = [
@@ -48,6 +51,11 @@ const items = [
 ];
 
 export function AppSidebar() {
+  const pathname = usePathname();
+  const isAuthPage = pathname === "/authorization";
+  if (isAuthPage) {
+    return null;
+  }
   return (
     <Sidebar className="">
       <SidebarHeader className="mb-7">
@@ -56,8 +64,8 @@ export function AppSidebar() {
             src="/logo.png"
             alt="logo"
             className="w-full"
-            width={80}
-            height={200}
+            width={159}
+            height={36}
           />
         </Link>
       </SidebarHeader>

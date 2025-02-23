@@ -13,14 +13,19 @@ import {
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
 import { useScreenStore } from "@/store/useScreenStore";
-import { BuyPremium } from "./ui/buy-premium";
 import { Calendar } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export const EventPersponsive = () => {
   const { isMobile, isTablet, checkScreenSize } = useScreenStore();
   useEffect(() => {
     checkScreenSize(); // Вызываем один раз при монтировании
   }, []);
+  const pathname = usePathname();
+  const isAuthPage = pathname === "/authorization";
+  if (isAuthPage) {
+    return null;
+  }
 
   console.log("isMobile", isMobile);
   console.log("isTablet", isTablet);
@@ -30,17 +35,14 @@ export const EventPersponsive = () => {
       {isMobile ? (
         <Drawer>
           <DrawerTrigger>
-            <Button variant={"secondary"} className="text-primary fixed bottom-10 right-10 text-foreground rounded-full w-10 h-12">
+            <Button variant={"secondary"} className="fixed bottom-10 right-10 text-foreground rounded-full w-10 h-12">
             <Calendar />
 
             </Button>
           </DrawerTrigger>
           <DrawerContent className="overflow-y-auto">
             <DrawerHeader>
-              <DrawerTitle>Move Goal</DrawerTitle>
-              <DrawerDescription>
-                Set your daily activity goal.
-              </DrawerDescription>
+              <DrawerTitle></DrawerTitle>
             </DrawerHeader>
             <EventSidebar />
           </DrawerContent>

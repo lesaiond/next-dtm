@@ -31,10 +31,10 @@ export const ProfileCard = () => {
 
       <form action="">
         <div className="flex justify-between gap-3 w-full mb-8">
-          <Input value={"James Rohman"} className="w-1/2 text-lg" />
-          <Input value={"+998 99 555 11 12"} className="w-1/2 text-lg" />
+          <Input placeholder={"James Rohman"} className="w-1/2 text-lg" />
+          <Input placeholder={"+998 99 555 11 12"} className="w-1/2 text-lg" />
         </div>
-        <Input value={"example@exam.com"} className="w-full mb-8 text-xl" />
+        <Input placeholder={"example@exam.com"} className="w-full mb-8 text-xl" />
         <div className="flex items-center gap-4 mb-8">
           <span className="text-primary">SMS alert activation</span>
           <Verified className="text-green-400" />

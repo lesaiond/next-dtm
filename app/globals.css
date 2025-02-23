@@ -5,6 +5,7 @@
 body {
   font-family: var(--font-lato), sans-serif;
   font-weight: 600;
+  transition: color .3s ease-in;
 }
 
 h1 {
@@ -27,6 +28,35 @@ span {
 .section_container {
   padding-bottom: 32px;
   width: 100%;
+}
+.quize-mask {
+  -webkit-mask-image: 
+    radial-gradient(circle 10px at 0px 0px, transparent 10px, black 11px),
+    radial-gradient(circle 10px at 100% 0px, transparent 10px, black 11px),
+    radial-gradient(circle 10px at 0px 100%, transparent 10px, black 11px),
+    radial-gradient(circle 10px at 100% 100%, transparent 10px, black 11px),
+    linear-gradient(black, black);
+  mask-image: 
+    radial-gradient(circle 10px at 0px 0px, transparent 10px, black 11px),
+    radial-gradient(circle 10px at 100% 0px, transparent 10px, black 11px),
+    radial-gradient(circle 10px at 0px 100%, transparent 10px, black 11px),
+    radial-gradient(circle 10px at 100% 100%, transparent 10px, black 11px),
+    linear-gradient(black, black);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+.quize-mask__bottom:first-child {
+  -webkit-mask-image: 
+    radial-gradient(circle 10px at 0px 0px, transparent 10px, black 11px),
+    radial-gradient(circle 10px at 100% 0px, transparent 10px, black 11px),
+    linear-gradient(black, black);
+  mask-image: 
+    radial-gradient(circle 10px at 0px 0px, transparent 10px, black 11px),
+    radial-gradient(circle 10px at 100% 0px, transparent 10px, black 11px),
+    linear-gradient(black, black);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
 }
 
 /* #1b1b1b 0 0% 11%*/
@@ -55,7 +85,7 @@ span {
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 240 10% 3.9%;
-    --chart-1: 12 76% 61%;
+    --chart-1: 142.1 76.2% 36.3%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;

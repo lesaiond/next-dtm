@@ -1,10 +1,13 @@
 import { JobCard } from "@/components/job-card";
 
-export default function SettingsPage() {
+export default function ExamsPage() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pb-5">
       {jobListings.map((job) => (
-        <JobCard key={job.id} job={job} />
+        <div key={job.id}>
+          <JobCard job={job} />
+        </div>
+        
       ))}
     </div>
   );
