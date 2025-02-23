@@ -1,11 +1,10 @@
 "use client";
 import ActivityCard from "@/components/activity-card";
 import { CoursesCard } from "@/components/courses-card";
-import { MiniCard } from "@/components/mini-card";
+import { MiniCard, MiniCardSup } from "@/components/mini-card";
 import StatsChart from "@/components/stats-chart";
 import {
   ChartBar,
-  MoveRight,
   Braces,
   Palette,
   Ratio,
@@ -25,12 +24,7 @@ export default function Home() {
             id={card.id}
           />
         ))}
-        <div className="flex items-center gap-3 rounded-2xl shadow-md p-6 bg-foreground  w-[70%] 550:w-1/2 lg:w-[33%]">
-          <span className="text-[22px] font-semibold text-background">
-            You have new message!
-          </span>
-          <MoveRight className="text-background" size={40} />
-        </div>
+        <MiniCardSup />
       </section>
 
       <section className="section_container flex flex-wrap justify-center lg:flex-nowrap gap-4">

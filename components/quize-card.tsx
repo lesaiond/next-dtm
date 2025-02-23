@@ -14,7 +14,7 @@ interface QuizeCardProps extends Question {
 export const QuizeCard = ({ question, options, id, onAnswer, selectedOption }: QuizeCardProps) => {
   return (
     <div className="mx-auto max-w-[375px]">
-      <div className="bg-background quize-mask border-b-4 border-dashed w-full py-5 px-10">
+      <div className="bg-background quize-mask border-b-2 border-dashed w-full py-5 px-10">
         <div className="text-muted-foreground text-sm mb-2">Вопрос {id}</div>
         <h6>{question}</h6>
       </div>

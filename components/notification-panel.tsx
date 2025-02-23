@@ -72,7 +72,7 @@ export function NotificationPanel() {
           {notifications.map((notification) => (
             <div
               key={notification.id}
-              className="flex items-start gap-4 px-4 py-3 hover:bg-muted/50 transition-colors cursor-pointer"
+              className="group flex items-start gap-4 px-4 py-3 hover:bg-muted/50 transition-colors cursor-pointer"
             >
               <div className="h-8 w-8 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
                 <Bell className="h-4 w-4 text-background" />
@@ -82,7 +82,7 @@ export function NotificationPanel() {
                   {notification.title}
                 </p>
                 <div className="flex items-center gap-2">
-                  <p className="text-sm text-primary">
+                  <p className="text-sm group-hover:text-primary">
                     {notification.project}
                   </p>
                   <span className="text-xs text-muted-foreground">

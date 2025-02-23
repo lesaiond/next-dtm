@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import ActionButtons from "./action-buttons";
 
 interface QuizResultsProps {
   results: { correct: number; incorrect: number };
@@ -33,6 +34,7 @@ export const QuizResults = ({
           <span className="text-muted-foreground text-md">Wrong</span>
         </div>
       </div>
+      <ActionButtons />
       <Button onClick={onRestart} className="mt-4">
         Начать заново
       </Button>

@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { EventSidebar } from "./layout/event-sidebar";
 import {
   Drawer,
   DrawerContent,
-  DrawerDescription,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
@@ -14,27 +13,18 @@ import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
 import { useScreenStore } from "@/store/useScreenStore";
 import { Calendar } from "lucide-react";
-import { usePathname } from "next/navigation";
+import PageContainer from "./layout/PageContainer";
 
 export const EventPersponsive = () => {
   const { isMobile, isTablet, checkScreenSize } = useScreenStore();
   useEffect(() => {
     checkScreenSize(); // Вызываем один раз при монтировании
   }, []);
-  const pathname = usePathname();
-  const isAuthPage = pathname === "/authorization";
-  if (isAuthPage) {
-    return null;
-  }
-
-  console.log("isMobile", isMobile);
-  console.log("isTablet", isTablet);
-
   return (
-    <>
+    <PageContainer>
       {isMobile ? (
         <Drawer>
-          <DrawerTrigger>
+          <DrawerTrigger asChild>
             <Button variant={"secondary"} className="fixed bottom-10 right-10 text-foreground rounded-full w-10 h-12">
             <Calendar />
 
@@ -62,6 +52,6 @@ export const EventPersponsive = () => {
       ) : (
         <EventSidebar />
       )}
-    </>
+    </PageContainer>
   );
 };

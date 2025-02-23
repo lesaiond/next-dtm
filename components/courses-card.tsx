@@ -18,8 +18,8 @@ export const CoursesCard: React.FC<CoursesCardProps> = ({
   id,
 }) => {
   return (
-    <div className="w-full flex flex-col 550:flex-row justify-between items-center gap-3 rounded-2xl shadow p-6">
-      <div className="bg-muted p-3 rounded-full">
+    <div className="group w-full flex flex-col 550:flex-row justify-between items-center gap-3 rounded-2xl shadow p-6 hover:shadow-secondary">
+      <div className="bg-muted p-3 rounded-full group-hover:bg-primary/20">
         <Icon />
       </div>
       <div className="flex flex-col 550:flex-row items-center justify-between w-full">

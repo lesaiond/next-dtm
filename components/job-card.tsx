@@ -15,7 +15,7 @@ interface Job {
 
 export const JobCard = ({ job }: { job: Job }) => {
   return (
-    <div className="w-full rounded-xl p-5 min-h-[380px] flex flex-col justify-between shadow">
+    <div className="group hover:-translate-y-2 hover:shadow-lg w-full rounded-xl p-5 min-h-[380px] flex flex-col justify-between shadow">
       <div className="flex justify-between w-full">
         <div className="border border-input rounded-full p-2">
           <Image
@@ -36,7 +36,7 @@ export const JobCard = ({ job }: { job: Job }) => {
           <div className="text-muted-foreground">{job.postedAgo}</div>
         </div>
         <Link href={`exams/${job.id}`}>
-          <h6 className="text-2xl mb-2 hover:text-secondary">{job.title}</h6>
+          <h6 className="text-2xl mb-2 group-hover:text-secondary">{job.title}</h6>
         </Link>
         <div className="flex flex-wrap gap-2">
           {job.tags.map((tag, index) => (

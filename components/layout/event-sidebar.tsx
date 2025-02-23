@@ -10,7 +10,7 @@ export const EventSidebar = () => {
   const [showAll, setShowAll] = useState(false);
   const { isMobile, isTablet, checkScreenSize } = useScreenStore();
   useEffect(() => {
-    checkScreenSize(); // Вызываем один раз при монтировании
+    checkScreenSize();
   }, []);
 
   const visibleEvents = showAll ? events : events.slice(0, 4);
@@ -44,16 +44,18 @@ export const EventSidebar = () => {
         >
           {visibleEvents.map((event) => (
             <Link
-              href={`courses/${event.id}`}
+              href={`/exams/${event.id}`}
               key={event.id}
-              className="flex items-center w-full border-t-2 border-muted py-[14px]"
+              className="group flex items-center w-full border-t-2 border-muted py-[14px]"
             >
-              <span className="min-w-20">{event.hour}</span>
+              <span className="min-w-20 group-hover:text-">{event.hour}</span>
               <div className="flex flex-col border-l-2 border-foreground pl-3 ml-3">
                 <span className="font-medium text-muted-foreground">
                   {event.type}
                 </span>
-                <span className="text-foreground">{event.subject}</span>
+                <span className="text-foreground group-hover:text-primary">
+                  {event.subject}
+                </span>
               </div>
             </Link>
           ))}
