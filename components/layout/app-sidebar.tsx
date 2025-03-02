@@ -32,16 +32,6 @@ const items = [
     icon: BriefcaseBusiness,
   },
   {
-    title: "Chats",
-    url: "#",
-    icon: MessageCircle,
-  },
-  {
-    title: "Grades",
-    url: "#",
-    icon: ChartNoAxesColumn,
-  },
-  {
     title: "Settings",
     url: "/settings",
     icon: Settings,
