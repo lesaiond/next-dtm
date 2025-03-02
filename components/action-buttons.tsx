@@ -31,7 +31,7 @@ export default function ActionButtons() {
           key={index}
           className={`flex flex-col items-center justify-center `}
           >
-          <Link href={"/"}>
+          <Link href={"/"} className="flex flex-col items-center">
             <div className={`rounded-full p-3 ${btn.color} text-white shadow-md hover:opacity-80`}>{btn.icon}</div>
             <span className="text-xs mt-2">{btn.label}</span>
           </Link>
