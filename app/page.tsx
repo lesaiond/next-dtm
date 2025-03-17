@@ -1,8 +1,8 @@
 "use client";
-import ActivityCard from "@/components/activity-card";
-import { CoursesCard } from "@/components/courses-card";
-import { MiniCard, MiniCardSup } from "@/components/mini-card";
-import StatsChart from "@/components/stats-chart";
+import ActivityCard from "@/components/shared/activity-card";
+import { CoursesCard } from "@/components/shared/courses-card";
+import { MiniCard, MiniCardSup } from "@/components/shared/mini-card";
+import StatsChart from "@/components/shared/stats-chart";
 import {
   ChartBar,
   Braces,

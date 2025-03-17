@@ -1,4 +1,4 @@
-import { JobCard } from "@/components/job-card";
+import { JobCard } from "@/components/shared/job-card";
 
 export default function ExamsPage() {
   return (

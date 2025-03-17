@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
-import { Tooltip } from "./ui/tooltip";
+import { Tooltip } from "../ui/tooltip";
 import { AnimatedScore, ResultConfetti } from './result-animate';
 
 interface QuizResultsProps {

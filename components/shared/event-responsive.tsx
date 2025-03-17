@@ -1,19 +1,19 @@
 "use client";
 
 import { useEffect } from "react";
-import { EventSidebar } from "./layout/event-sidebar";
+import { EventSidebar } from "../layout/event-sidebar";
 import {
   Drawer,
   DrawerContent,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "./ui/drawer";
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
-import { Button } from "./ui/button";
+} from "../ui/drawer";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
+import { Button } from "../ui/button";
 import { useScreenStore } from "@/store/useScreenStore";
 import { Calendar } from "lucide-react";
-import PageContainer from "./layout/PageContainer";
+import PageContainer from "../layout/PageContainer";
 
 export const EventPersponsive = () => {
   const { isMobile, isTablet, checkScreenSize } = useScreenStore();

@@ -4,10 +4,10 @@
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { useQuizStore } from "@/store/quizStore";
-import { QuizResults } from "@/components/quiz-results";
+import { QuizResults } from "@/components/shared/quiz-results";
 import BackButton from "@/components/ui/back-button";
-import { FeedBack } from "@/components/feedback";
-import LeaderboardComponent from "@/components/leader-board-component";
+import { FeedBack } from "@/components/shared/feedback";
+import LeaderboardComponent from "@/components/shared/leader-board-component";
 
 export default function ResultsPage() {
   const router = useRouter();

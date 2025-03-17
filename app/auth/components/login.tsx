@@ -1,8 +1,19 @@
+"use client"
+import { useAuthStore } from "@/store/useAuthStore";
 import { LoginForm } from "./forms/login-form";
+import { motion } from "framer-motion";
 
 export const Login = () => {
+  const { setForm } = useAuthStore();
   return (
-    <div className="p-6 rounded-2xl w-full flex flex-col gap-6 shadow bg-background border max-w-[100vw] md:max-w-[420px] lg:max-w-[42%] xl:max-w-[520px] mx-auto">
+    <motion.div
+      key="login"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.2 }}
+      className="p-6 rounded-2xl w-full flex flex-col gap-6 shadow bg-background border max-w-[100vw] md:max-w-[420px] lg:max-w-[42%] xl:max-w-[520px] mx-auto"
+    >
       <h1 className="text-center">Agent Login</h1>
       <h6 className="text-center mx-auto max-w-80">
         Hi, Enter your details to get sign in to your account
@@ -26,11 +37,14 @@ export const Login = () => {
       </div>
       <span className="text-center font-medium">
         Don`t have an account?{" "}
-        <strong className="hover:text-secondary cursor-pointer">
+        <strong
+          onClick={() => setForm("register")}
+          className="hover:text-secondary cursor-pointer"
+        >
           {" "}
           Request Now
         </strong>
       </span>
-    </div>
+    </motion.div>
   );
 };

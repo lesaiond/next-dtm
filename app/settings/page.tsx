@@ -1,5 +1,5 @@
-import { BillsCard } from "@/components/bills-card";
-import { ProfileCard } from "@/components/profile-card";
+import { BillsCard } from "@/components/shared/bills-card";
+import { ProfileCard } from "@/components/shared/profile-card";
 import Image from "next/image";
 
 export default function SettingsPage() {

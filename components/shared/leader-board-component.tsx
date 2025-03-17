@@ -1,91 +1,14 @@
-import React, { useState } from "react";
+import React, { JSX, useState } from "react";
 import { Trophy, Medal, Crown, ChevronUp, ChevronDown, User } from "lucide-react";
 
-const LeaderboardItem = ({ rank, name, score, avatar, isCurrentUser }) => {
-  // Определяем, является ли позиция призовой
-  const isTop3 = rank <= 3;
-  
-  // Компоненты для призовых мест
-  const TopRankIcons = {
-    1: <Crown size={24} className="text-yellow-500" />,
-    2: <Medal size={24} className="text-gray-400" />,
-    3: <Medal size={24} className="text-amber-700" />
-  };
-  
-  // Стили для призовых мест
-  const topStyles = {
-    1: "bg-gradient-to-r from-yellow-100 to-yellow-200 border-yellow-400 shadow-yellow-200/50",
-    2: "bg-gradient-to-r from-gray-100 to-gray-200 border-gray-300 shadow-gray-200/50",
-    3: "bg-gradient-to-r from-amber-100 to-amber-200 border-amber-400 shadow-amber-200/50",
-  };
-  
-  // Изменение счета (пример)
-  const scoreChange = Math.floor(Math.random() * 3) - 1; // -1, 0, или 1
-  
-  return (
-    <div 
-      className={`
-        relative flex items-center p-4 mb-3 rounded-lg border transition-all duration-300
-        ${isTop3 ? topStyles[rank] : "bg-white/80 border-gray-200"} 
-        ${isCurrentUser ? "ring-2 ring-blue-400 ring-offset-2" : ""}
-        hover:shadow-lg transform hover:-translate-y-1
-      `}
-    >
-      {/* Ранг */}
-      <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md mr-4">
-        {isTop3 ? (
-          TopRankIcons[rank]
-        ) : (
-          <span className="text-gray-700 font-bold">{rank}</span>
-        )}
-      </div>
-      
-      {/* Информация о пользователе */}
-      <div className="flex items-center flex-1">
-        <div className="w-10 h-10 bg-gray-200 rounded-full overflow-hidden mr-3 border-2 border-white shadow-md">
-          {avatar ? (
-            <img src={avatar} alt={name} className="w-full h-full object-cover" />
-          ) : (
-            <div className="flex items-center justify-center h-full bg-blue-100">
-              <User size={20} className="text-blue-500" />
-            </div>
-          )}
-        </div>
-        <div>
-          <div className="font-semibold text-gray-800 flex items-center">
-            {name}
-            {isCurrentUser && (
-              <span className="ml-2 text-xs bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full">ВЫ</span>
-            )}
-          </div>
-          <div className="text-sm text-gray-500">
-            {scoreChange > 0 ? (
-              <span className="text-green-500 flex items-center"><ChevronUp size={14} /> Рост</span>
-            ) : scoreChange < 0 ? (
-              <span className="text-red-500 flex items-center"><ChevronDown size={14} /> Падение</span>
-            ) : (
-              <span className="text-gray-400">Без изменений</span>
-            )}
-          </div>
-        </div>
-      </div>
-      
-      {/* Очки */}
-      <div className="font-bold text-lg">
-        {score.toLocaleString()}
-        <span className="text-xs text-gray-500 ml-1">pts</span>
-      </div>
-      
-      {/* Декоративный элемент для топ-3 */}
-      {isTop3 && (
-        <div className="absolute -top-2 -right-2 w-8 h-8 flex items-center justify-center bg-white rounded-full border-2 shadow-md"
-          style={{ borderColor: rank === 1 ? '#EAB308' : rank === 2 ? '#9CA3AF' : '#B45309' }}>
-          <Trophy size={14} className={rank === 1 ? "text-yellow-500" : rank === 2 ? "text-gray-400" : "text-amber-700"} />
-        </div>
-      )}
-    </div>
-  );
-};
+interface LeaderboardItemProps {
+  rank: number;
+  name: string;
+  score: number;
+  avatar?: string;
+  isCurrentUser?: boolean;
+}
+
 
 const LeaderboardComponent = () => {
   // Пример данных для лидерборда
@@ -187,4 +110,88 @@ const LeaderboardComponent = () => {
   );
 };
 
-export default LeaderboardComponent;
+export default LeaderboardComponent;const LeaderboardItem = ({ rank, name, score, avatar, isCurrentUser }: LeaderboardItemProps) => {
+  // Определяем, является ли позиция призовой
+  const isTop3 = rank <= 3;
+  
+  // Компоненты для призовых мест
+  const TopRankIcons: Record<number, JSX.Element> = {
+    1: <Crown size={24} className="text-yellow-500" />,
+    2: <Medal size={24} className="text-gray-400" />,
+    3: <Medal size={24} className="text-amber-700" />
+  };
+  
+  // Стили для призовых мест
+  const topStyles: Record<number, string>= {
+    1: "bg-gradient-to-r from-yellow-100 to-yellow-200 border-yellow-400 shadow-yellow-200/50",
+    2: "bg-gradient-to-r from-gray-100 to-gray-200 border-gray-300 shadow-gray-200/50",
+    3: "bg-gradient-to-r from-amber-100 to-amber-200 border-amber-400 shadow-amber-200/50",
+  };
+  
+  // Изменение счета (пример)
+  const scoreChange = Math.floor(Math.random() * 3) - 1; // -1, 0, или 1
+  
+  return (
+    <div 
+      className={`
+        relative flex items-center p-4 mb-3 rounded-lg border transition-all duration-300
+        ${isTop3 ? topStyles[rank] : "bg-white/80 border-gray-200"} 
+        ${isCurrentUser ? "ring-2 ring-blue-400 ring-offset-2" : ""}
+        hover:shadow-lg transform hover:-translate-y-1
+      `}
+    >
+      {/* Ранг */}
+      <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md mr-4">
+        {isTop3 ? (
+          TopRankIcons[rank]
+        ) : (
+          <span className="text-gray-700 font-bold">{rank}</span>
+        )}
+      </div>
+      
+      {/* Информация о пользователе */}
+      <div className="flex items-center flex-1">
+        <div className="w-10 h-10 bg-gray-200 rounded-full overflow-hidden mr-3 border-2 border-white shadow-md">
+          {avatar ? (
+            <img src={avatar} alt={name} className="w-full h-full object-cover" />
+          ) : (
+            <div className="flex items-center justify-center h-full bg-blue-100">
+              <User size={20} className="text-blue-500" />
+            </div>
+          )}
+        </div>
+        <div>
+          <div className="font-semibold text-gray-800 flex items-center">
+            {name}
+            {isCurrentUser && (
+              <span className="ml-2 text-xs bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full">ВЫ</span>
+            )}
+          </div>
+          <div className="text-sm text-gray-500">
+            {scoreChange > 0 ? (
+              <span className="text-green-500 flex items-center"><ChevronUp size={14} /> Рост</span>
+            ) : scoreChange < 0 ? (
+              <span className="text-red-500 flex items-center"><ChevronDown size={14} /> Падение</span>
+            ) : (
+              <span className="text-gray-400">Без изменений</span>
+            )}
+          </div>
+        </div>
+      </div>
+      
+      {/* Очки */}
+      <div className="font-bold text-lg">
+        {score.toLocaleString()}
+        <span className="text-xs text-gray-500 ml-1">pts</span>
+      </div>
+      
+      {/* Декоративный элемент для топ-3 */}
+      {isTop3 && (
+        <div className="absolute -top-2 -right-2 w-8 h-8 flex items-center justify-center bg-white rounded-full border-2 shadow-md"
+          style={{ borderColor: rank === 1 ? '#EAB308' : rank === 2 ? '#9CA3AF' : '#B45309' }}>
+          <Trophy size={14} className={rank === 1 ? "text-yellow-500" : rank === 2 ? "text-gray-400" : "text-amber-700"} />
+        </div>
+      )}
+    </div>
+  );
+};

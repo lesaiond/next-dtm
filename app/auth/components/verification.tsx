@@ -4,10 +4,19 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
+
 
 export const Verification = () => {
   return (
-    <div className="p-6 rounded-2xl w-full flex flex-col gap-6 shadow bg-background border max-w-[520px] mx-auto">
+    <motion.div
+    key="verification"
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: 20 }}
+    transition={{ duration: 0.2 }}
+    className="p-6 rounded-2xl w-full flex flex-col gap-6 shadow bg-background border max-w-[520px] mx-auto">
       <div className="mx-auto">
         <Image src={"/varify-pic.png"} alt="Verify svg" width={70} height={70} className="h-auto w-[70px]"/>
       </div>
@@ -25,6 +34,6 @@ export const Verification = () => {
           <InputOTPSlot index={5} />
         </InputOTPGroup>
       </InputOTP>
-    </div>
+    </motion.div>
   );
 };

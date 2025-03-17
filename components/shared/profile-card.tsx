@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { Input } from "./ui/input";
+import { Input } from "../ui/input";
 import { Verified } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 export const ProfileCard = () => {
   return (

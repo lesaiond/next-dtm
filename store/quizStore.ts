@@ -62,7 +62,6 @@ const defaultExams: Record<string, ExamData> = {
         options: ["Paris", "London", "Berlin", "Rome"],
         correctAnswer: "Paris",
       },
-      // Другие вопросы...
     ]
   },
   "2": {

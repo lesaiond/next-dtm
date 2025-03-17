@@ -1,9 +1,22 @@
 "use client"
 import React from 'react';
-import { Progress } from "./ui/progress";
+import { Progress } from "../ui/progress";
 import confetti from "canvas-confetti";
 
-export const AnimatedScore = ({ value, total, label, color }) => {
+interface AnimatedScoreProps {
+  value: number;
+  total: number;
+  label: string;
+  color?: string;
+}
+
+interface ResultConfettiProps {
+  score: number;
+  total: number;
+}
+
+
+export const AnimatedScore: React.FC<AnimatedScoreProps> = ({ value, total, label, color }) => {
   const [score, setScore] = React.useState(0);
 
   React.useEffect(() => {
@@ -22,7 +35,7 @@ export const AnimatedScore = ({ value, total, label, color }) => {
   );
 };
 
-export const ResultConfetti = ({ score, total }) => {
+export const ResultConfetti: React.FC<ResultConfettiProps> = ({ score, total }) => {
   React.useEffect(() => {
     if (score / total >= 0.7) {
       confetti({

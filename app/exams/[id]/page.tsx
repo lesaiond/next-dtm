@@ -4,9 +4,9 @@
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { useQuizStore } from "@/store/quizStore";
-import { QuizProgress } from "@/components/quiz-progress";
-import { QuizeCard } from "@/components/quize-card";
-import { QuizNavigation } from "@/components/quiz-navigation";
+import { QuizProgress } from "@/components/shared/quiz-progress";
+import { QuizeCard } from "@/components/shared/quize-card";
+import { QuizNavigation } from "@/components/shared/quiz-navigation";
 import BackButton from "@/components/ui/back-button";
 import { Button } from "@/components/ui/button";
 

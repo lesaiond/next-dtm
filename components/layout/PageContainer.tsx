@@ -16,7 +16,7 @@ export default function PageContainer({
     setCurrentPage(pathname);
   }, [pathname, setCurrentPage]);
 
-  if (currentPage === "/authorization") {
+  if (currentPage === "/auth") {
     return null;
   }
 

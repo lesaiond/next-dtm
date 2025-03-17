@@ -8,7 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { NotificationPanel } from "../notification-panel";
+import { NotificationPanel } from "../shared/notification-panel";
 import Link from "next/link";
 import PageContainer from "./PageContainer";
 
@@ -38,7 +38,7 @@ export const AppHeader = () => {
                 <Link href={"/courses"}>Courses</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link href={"/authorization"}>auth</Link>
+                <Link href={"/auth"}>auth</Link>
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => console.log("Logout")}>
                 Выйти
